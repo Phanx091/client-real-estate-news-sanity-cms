@@ -1,3 +1,3 @@
-import newsArticle from './postTypes'
+import { newsArticle, localEats } from './postTypes'
 
-export const schemaTypes = [newsArticle]
+export const schemaTypes = [newsArticle, localEats]
