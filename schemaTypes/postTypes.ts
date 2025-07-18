@@ -96,7 +96,10 @@ export const newsArticle = {
               'Design',
               'Security',
               'Maintenance',
-              'Psychology'
+              'Psychology',
+              'First time investors',
+              'Property management',
+              'Fixture upper homes'
             ]
           }
         }
