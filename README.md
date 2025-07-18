@@ -1,21 +1,22 @@
 # Real Estate News CMS
 
-A Sanity-powered content management system for real estate news articles. Built with TypeScript and modern web technologies.
+A Sanity-powered content management system for real estate news articles and local restaurant features. Built with TypeScript and modern web technologies.
 
 ## 🏗️ Features
 
 ### Content Management
 - **News Articles**: Create and manage real estate news content
+- **Local Eats**: Create and manage local restaurant features
 - **Rich Text Editor**: Full-featured content editor with image support
 - **Image Management**: Hotspot-enabled image cropping and optimization
 - **Categories**: Predefined categories for easy content organization
 - **Tags**: Flexible tagging system for additional classification
 - **SEO Optimization**: Built-in SEO fields and metadata management
 
-### Article Schema
+### Article Schema (News Article)
 - **Title**: Article headline (max 100 characters)
 - **Slug**: URL-friendly identifier (auto-generated from title)
-- **Description**: Article summary (max 200 characters)
+- **Description**: Article summary (max 250 characters)
 - **Content**: Rich text content with images and formatting
 - **Main Image**: Primary article image with hotspot cropping
 - **Published Date**: Publication timestamp
@@ -34,6 +35,32 @@ A Sanity-powered content management system for real estate news articles. Built 
   - Security
   - Maintenance
   - Psychology
+  - First time investors
+  - Property management
+  - Fixture upper homes
+- **Tags**: Additional free-form tags for flexible classification
+
+### Local Eats Schema
+- **Title**: Restaurant headline (max 100 characters)
+- **Slug**: URL-friendly identifier (auto-generated from title)
+- **Description**: Restaurant summary (max 250 characters)
+- **Content**: Rich text content with images and formatting
+- **Main Image**: Primary image with hotspot cropping
+- **Published Date**: Publication timestamp
+- **Author/Source**: Author or source attribution
+- **Restaurant's Website**: Official website (optional)
+- **Yelp Link**: Yelp page (optional)
+- **Instagram URL**: Instagram profile (optional)
+- **Source URL**: Link to original article (optional)
+- **Featured**: Mark as featured for prominent display
+- **Categories**: Select from predefined categories:
+  - Sonoma County
+  - Napa Valley
+  - San Francisco
+  - Marin County
+  - Culver City
+  - Santa Monica
+  - Malibu
 - **Tags**: Additional free-form tags for flexible classification
 
 ## 🚀 Getting Started
@@ -79,7 +106,7 @@ This will create a public URL that can be shared with your team.
 real-estate-news/
 ├── schemaTypes/
 │   ├── index.ts          # Schema registry
-│   └── postTypes.ts      # News article schema
+│   └── postTypes.ts      # News article and Local Eats schemas
 ├── static/               # Static assets
 ├── sanity.config.ts      # Sanity configuration
 ├── sanity.cli.ts         # CLI configuration
@@ -88,19 +115,20 @@ real-estate-news/
 
 ## 🎨 Content Management
 
-### Creating Articles
+### Creating Content
 
 1. **Access the Studio**: Open the deployed Sanity Studio URL
-2. **Create New Article**: Click "Create" → "News Article"
+2. **Create New Content**: Click "Create" → choose either "News Article" or "Local Eats"
 3. **Fill Required Fields**:
    - Title (required)
-   - Description (required)
+   - Description (required, max 250 characters)
    - Main Image (required)
    - Published Date (required)
    - Author/Source (required)
    - Categories (select at least one)
-4. **Add Content**: Use the rich text editor for article content
-5. **Publish**: Save and publish your article
+   - For Local Eats: Restaurant's Website, Yelp Link, Instagram URL (all optional)
+4. **Add Content**: Use the rich text editor for article or restaurant content
+5. **Publish**: Save and publish your entry
 
 ### Image Guidelines
 
@@ -111,8 +139,7 @@ real-estate-news/
 
 ### Categories
 
-Articles must be assigned to at least one category for proper organization and filtering:
-
+#### News Article Categories
 - **Market Analysis**: Market trends, analysis, and insights
 - **Buyer Tips**: Advice for homebuyers
 - **Seller Tips**: Guidance for home sellers
@@ -124,6 +151,18 @@ Articles must be assigned to at least one category for proper organization and f
 - **Security**: Home security and safety
 - **Maintenance**: Home maintenance tips
 - **Psychology**: Real estate psychology and decision-making
+- **First time investors**: Tips for new investors
+- **Property management**: Property management advice
+- **Fixture upper homes**: Information on fixer-upper properties
+
+#### Local Eats Categories
+- **Sonoma County**
+- **Napa Valley**
+- **San Francisco**
+- **Marin County**
+- **Culver City**
+- **Santa Monica**
+- **Malibu**
 
 ## 🔧 Development
 
@@ -175,6 +214,11 @@ const articles = await client.fetch(`
 // Fetch articles by category
 const marketArticles = await client.fetch(`
   *[_type == "newsArticle" && "Market Analysis" in categories] | order(publishedAt desc)
+`)
+
+// Fetch all local eats
+const eats = await client.fetch(`
+  *[_type == "localEats"] | order(publishedAt desc)
 `)
 ```
 
