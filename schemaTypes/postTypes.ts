@@ -24,7 +24,8 @@ export default {
         title: 'Description',
         type: 'text',
         rows: 3,
-        validation: (Rule: any) => Rule.required().max(200)
+        validation: (Rule: any) => Rule.required().max(250),
+        description: 'Article summary (max 250 characters)'
       },
       {
         name: 'content',

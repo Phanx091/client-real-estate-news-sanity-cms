@@ -5,6 +5,7 @@ export default defineCliConfig({
     projectId: 'fdmxisud',
     dataset: 'production'
   },
+  studioHost: 'real-estate-news',
   /**
    * Enable auto-updates for studios.
    * Learn more at https://www.sanity.io/docs/cli#auto-updates
