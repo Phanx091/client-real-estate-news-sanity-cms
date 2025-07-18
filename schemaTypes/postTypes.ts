@@ -78,6 +78,14 @@ export const newsArticle = {
       description: 'Mark this as a featured article to appear prominently'
     },
     {
+      name: 'featuredPosition',
+      title: 'Featured Position',
+      type: 'number',
+      validation: (Rule: any) => Rule.min(1).max(4),
+      description: 'Position for featured display (1-4, only 4 items can be featured)',
+      hidden: ({document}: any) => !document?.featured
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',
@@ -228,6 +236,14 @@ export const localEats = {
       title: 'Featured Article',
       type: 'boolean',
       description: 'Mark this as a featured article to appear prominently'
+    },
+    {
+      name: 'featuredPosition',
+      title: 'Featured Position',
+      type: 'number',
+      validation: (Rule: any) => Rule.min(1).max(4),
+      description: 'Position for featured display (1-4, only 4 items can be featured)',
+      hidden: ({document}: any) => !document?.featured
     },
     {
       name: 'categories',
