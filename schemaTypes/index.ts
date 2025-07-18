@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import newsArticle from './postTypes'
+
+export const schemaTypes = [newsArticle]
