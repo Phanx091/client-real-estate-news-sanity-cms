@@ -238,7 +238,10 @@ export const localEats = {
               'Sonoma County',
               'Napa Valley',
               'San Francisco',
-              'Marin County'
+              'Marin County',
+              'Culver City',
+              'Santa Monica',
+              'Malibu'
             ]
           }
         }
