@@ -246,6 +246,20 @@ export const localEats = {
       hidden: ({document}: any) => !document?.featured
     },
     {
+      name: 'priceRange',
+      title: 'Price Range',
+      type: 'number',
+      validation: (Rule: any) => Rule.required().min(1).max(5),
+      description: 'Price range (1-5). 1 indicates $ (least expensive), 5 indicates $$$$$ (most expensive).'
+    },
+    {
+      name: 'cuisineType',
+      title: 'Cuisine Type',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+      description: 'Type of cuisine or dining experience (e.g., Fine Dining, Casual, Fast Food, Cafe, etc.)'
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',
